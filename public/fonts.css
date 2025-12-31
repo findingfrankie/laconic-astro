@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'Arthemys Display';
+  font-weight: normal;
+  font-style: normal;
+  src: url('/fonts/arthemys/ArthemysDisplay-Regular.woff2') format('woff2'),
+    url('/fonts/arthemys/ArthemysDisplay-Regular.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Hoves';
+  font-weight: normal;
+  font-style: italic;
+  src: url('/fonts/tt-hoves/TTHoves-Italic.woff2') format('woff2'),
+    url('/fonts/tt-hoves/TTHoves-Italic.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Mono';
+  font-weight: normal;
+  font-style: normal;
+  src: url('/fonts/dm-mono/DMMono-Regular.woff2') format('woff2'),
+    url('/fonts/dm-mono/DMMono-Regular.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Hoves';
+  font-weight: normal;
+  font-style: normal;
+  src: url('/fonts/tt-hoves/TTHoves-Regular.woff2') format('woff2'),
+    url('/fonts/tt-hoves/TTHoves-Regular.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Hoves';
+  font-weight: 500;
+  font-style: italic;
+  src: url('/fonts/tt-hoves/TTHoves-MediumItalic.woff2') format('woff2'),
+    url('/fonts/tt-hoves/TTHoves-MediumItalic.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Hoves';
+  font-weight: 500;
+  font-style: normal;
+  src: url('/fonts/tt-hoves/TTHoves-Medium.woff2') format('woff2'),
+    url('/fonts/tt-hoves/TTHoves-Medium.woff') format('woff');
+  font-display: swap;
+}

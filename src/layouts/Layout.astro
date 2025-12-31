@@ -1,22 +1,88 @@
+---
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Laconic Network</title>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
 
-<style>
+<style is:global>
+	@font-face {
+		font-family: 'Arthemys Display';
+		font-weight: normal;
+		font-style: normal;
+		src: url('/fonts/arthemys/ArthemysDisplay-Regular.woff2') format('woff2'),
+			url('/fonts/arthemys/ArthemysDisplay-Regular.woff') format('woff');
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'TT Hoves';
+		font-weight: normal;
+		font-style: normal;
+		src: url('/fonts/tt-hoves/TTHoves-Regular.woff2') format('woff2'),
+			url('/fonts/tt-hoves/TTHoves-Regular.woff') format('woff');
+		font-display: swap;
+	}
+
+	:root {
+		--inspect-color: #f00;
+		--font-system: -apple-system, blinkmacsystemfont, segoe ui, roboto, oxygen,
+			ubuntu, cantarell, fira sans, droid sans, helvetica neue, sans-serif;
+		--font-tt-hoves: "TT Hoves", var(--font-system);
+		--font-arthemys: "Arthemys Display", var(--font-system);
+		--font-dm-mono: "DM Mono", var(--font-system);
+		--font-heading: var(--font-arthemys);
+		--duration-normal: 0.525s;
+		--duration-fast: 0.262s;
+		--ease: cubic-bezier(0.165, 0.84, 0.44, 1);
+		--ease-button: cubic-bezier(0.3, 1, 0.8, 1);
+		--normal-transition: var(--duration-fast) var(--ease);
+		--main-padding-top: max(13px, 0.6770833333vw);
+		--main-padding-side: max(16px, 2.96875vw);
+		--header-height: max(70px, 3.6979166667vw);
+	}
+
+	:root[data-theme=dark] {
+		--color-accent: #0000f4;
+		--color-accent-boke: #fbfbfb;
+		--color-black: #040404;
+		--color-white: #fbfbfb;
+		--color-grey: #565656;
+		--color-grey-light: #8e8e8e;
+		--color-grey-lightness: #dedede;
+	}
+
+	:root[data-theme=light] {
+		--color-accent: #0000f4;
+		--color-accent-boke: #0000f4;
+		--color-black: #fbfbfb;
+		--color-white: #040404;
+		--color-grey: #565656;
+		--color-grey-light: #8e8e8e;
+		--color-grey-lightness: #dedede;
+	}
+
 	html,
 	body {
 		margin: 0;
 		width: 100%;
 		height: 100%;
+		font-family: 'TT Hoves', sans-serif;
+		background-color: var(--color-black);
+		color: var(--color-white);
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'Arthemys Display', sans-serif;
 	}
 </style>
