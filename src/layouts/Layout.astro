@@ -16,6 +16,193 @@
 </html>
 
 <style is:global>
+	/* ============================================
+	   NORMALIZE & RESET
+	   ============================================ */
+	
+	html {
+		line-height: 1.15;
+		-webkit-text-size-adjust: 100%;
+	}
+
+	body {
+		margin: 0;
+	}
+
+	main {
+		display: block;
+	}
+
+	h1 {
+		font-size: 2em;
+		margin: 0.67em 0;
+	}
+
+	hr {
+		box-sizing: content-box;
+		height: 0;
+		overflow: visible;
+	}
+
+	pre {
+		font-family: monospace, monospace;
+		font-size: 1em;
+	}
+
+	a {
+		background-color: transparent;
+	}
+
+	abbr[title] {
+		border-bottom: none;
+		text-decoration: underline dotted;
+	}
+
+	b,
+	strong {
+		font-weight: bolder;
+	}
+
+	code,
+	kbd,
+	samp {
+		font-family: monospace, monospace;
+		font-size: 1em;
+	}
+
+	small {
+		font-size: 80%;
+	}
+
+	sub,
+	sup {
+		font-size: 75%;
+		line-height: 0;
+		position: relative;
+		vertical-align: baseline;
+	}
+
+	sub {
+		bottom: -0.25em;
+	}
+
+	sup {
+		top: -0.5em;
+	}
+
+	img {
+		border-style: none;
+	}
+
+	button,
+	input,
+	optgroup,
+	select,
+	textarea {
+		font-family: inherit;
+		font-size: 100%;
+		line-height: 1.15;
+		margin: 0;
+	}
+
+	button,
+	input {
+		overflow: visible;
+	}
+
+	button,
+	select {
+		text-transform: none;
+	}
+
+	button,
+	[type="button"],
+	[type="reset"],
+	[type="submit"] {
+		-webkit-appearance: button;
+	}
+
+	button::-moz-focus-inner,
+	[type="button"]::-moz-focus-inner,
+	[type="reset"]::-moz-focus-inner,
+	[type="submit"]::-moz-focus-inner {
+		border-style: none;
+		padding: 0;
+	}
+
+	button:-moz-focusring,
+	[type="button"]:-moz-focusring,
+	[type="reset"]:-moz-focusring,
+	[type="submit"]:-moz-focusring {
+		outline: 1px dotted ButtonText;
+	}
+
+	fieldset {
+		padding: 0.35em 0.75em 0.625em;
+	}
+
+	legend {
+		box-sizing: border-box;
+		color: inherit;
+		display: table;
+		max-width: 100%;
+		padding: 0;
+		white-space: normal;
+	}
+
+	progress {
+		vertical-align: baseline;
+	}
+
+	textarea {
+		overflow: auto;
+	}
+
+	[type="checkbox"],
+	[type="radio"] {
+		box-sizing: border-box;
+		padding: 0;
+	}
+
+	[type="number"]::-webkit-inner-spin-button,
+	[type="number"]::-webkit-outer-spin-button {
+		height: auto;
+	}
+
+	[type="search"] {
+		-webkit-appearance: textfield;
+		outline-offset: -2px;
+	}
+
+	[type="search"]::-webkit-search-decoration {
+		-webkit-appearance: none;
+	}
+
+	::-webkit-file-upload-button {
+		-webkit-appearance: button;
+		font: inherit;
+	}
+
+	details {
+		display: block;
+	}
+
+	summary {
+		display: list-item;
+	}
+
+	template {
+		display: none;
+	}
+
+	[hidden] {
+		display: none;
+	}
+
+	/* ============================================
+	   FONTS
+	   ============================================ */
+
 	@font-face {
 		font-family: 'Arthemys Display';
 		font-weight: normal;
@@ -34,25 +221,68 @@
 		font-display: swap;
 	}
 
+	@font-face {
+		font-family: 'TT Hoves';
+		font-weight: 500;
+		font-style: normal;
+		src: url('/fonts/tt-hoves/TTHoves-Medium.woff2') format('woff2'),
+			url('/fonts/tt-hoves/TTHoves-Medium.woff') format('woff');
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'TT Hoves';
+		font-weight: normal;
+		font-style: italic;
+		src: url('/fonts/tt-hoves/TTHoves-Italic.woff2') format('woff2'),
+			url('/fonts/tt-hoves/TTHoves-Italic.woff') format('woff');
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'DM Mono';
+		font-weight: normal;
+		font-style: normal;
+		src: url('/fonts/dm-mono/DMMono-Regular.woff2') format('woff2'),
+			url('/fonts/dm-mono/DMMono-Regular.woff') format('woff');
+		font-display: swap;
+	}
+
+	/* ============================================
+	   CSS VARIABLES
+	   ============================================ */
+
 	:root {
-		--inspect-color: #f00;
+		/* Font Stacks */
 		--font-system: -apple-system, blinkmacsystemfont, segoe ui, roboto, oxygen,
 			ubuntu, cantarell, fira sans, droid sans, helvetica neue, sans-serif;
 		--font-tt-hoves: "TT Hoves", var(--font-system);
 		--font-arthemys: "Arthemys Display", var(--font-system);
 		--font-dm-mono: "DM Mono", var(--font-system);
 		--font-heading: var(--font-arthemys);
+		
+		/* Timing & Easing */
 		--duration-normal: 0.525s;
 		--duration-fast: 0.262s;
 		--ease: cubic-bezier(0.165, 0.84, 0.44, 1);
 		--ease-button: cubic-bezier(0.3, 1, 0.8, 1);
 		--normal-transition: var(--duration-fast) var(--ease);
-		--main-padding-top: max(13px, 0.6770833333vw);
-		--main-padding-side: max(16px, 2.96875vw);
-		--header-height: max(70px, 3.6979166667vw);
+		
+		/* Layout */
+		--main-padding-top: max(13px, 0.677vw);
+		--main-padding-side: max(16px, 2.969vw);
+		--header-height: max(70px, 3.698vw);
+		
+		/* Breakpoints (for reference in comments) */
+		/* mobile-sm: 500px */
+		/* mobile: 900px */
+		/* tablet: 1024px */
+		/* desktop-sm: 1280px */
+		/* desktop: 1440px */
+		/* desktop-xl: 1920px */
 	}
 
-	:root[data-theme=dark] {
+	:root[data-theme="dark"] {
 		--color-accent: #0000f4;
 		--color-accent-boke: #fbfbfb;
 		--color-black: #040404;
@@ -62,7 +292,7 @@
 		--color-grey-lightness: #dedede;
 	}
 
-	:root[data-theme=light] {
+	:root[data-theme="light"] {
 		--color-accent: #0000f4;
 		--color-accent-boke: #0000f4;
 		--color-black: #fbfbfb;
@@ -72,17 +302,122 @@
 		--color-grey-lightness: #dedede;
 	}
 
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-		font-family: 'TT Hoves', sans-serif;
-		background-color: var(--color-black);
-		color: var(--color-white);
+	/* ============================================
+	   GLOBAL STYLES
+	   ============================================ */
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
 	}
 
+	html {
+		box-sizing: border-box;
+		background-color: var(--color-black);
+		text-rendering: geometricprecision;
+		color: var(--color-white);
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		font-variant-ligatures: common-ligatures;
+		scroll-padding-top: calc(var(--header-height) + 30px);
+		scroll-behavior: smooth;
+	}
+
+	body {
+		overflow-x: hidden;
+		background-color: var(--color-black);
+		color: var(--color-white);
+		font-family: var(--font-tt-hoves);
+		min-height: 100vh;
+	}
+
+	/* ============================================
+	   TYPOGRAPHY
+	   ============================================ */
+
 	h1, h2, h3, h4, h5, h6 {
-		font-family: 'Arthemys Display', sans-serif;
+		font-family: var(--font-heading);
+		margin: 0;
+		font-weight: normal;
+	}
+
+	p {
+		font-size: clamp(16px, 1.25vw, 24px);
+		font-family: var(--font-tt-hoves);
+		line-height: 1.32;
+		margin: 0;
+	}
+
+	/* ============================================
+	   SELECTION & FOCUS
+	   ============================================ */
+
+	::selection {
+		background: var(--color-accent);
+		color: var(--color-black);
+	}
+
+	:focus-visible {
+		outline: max(2px, 0.104vw) dashed var(--color-accent);
+		outline-offset: 2px;
+	}
+
+	/* Remove focus outline for mouse users */
+	body:not(.user-is-tabbing) button:focus,
+	body:not(.user-is-tabbing) input:focus,
+	body:not(.user-is-tabbing) select:focus,
+	body:not(.user-is-tabbing) textarea:focus {
+		outline: none;
+	}
+
+	/* ============================================
+	   UTILITY CLASSES
+	   ============================================ */
+
+	.highlight {
+		color: var(--color-accent);
+	}
+
+	.sr-only {
+		position: absolute;
+		border: 0;
+		padding: 0;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		white-space: nowrap;
+		clip: rect(0, 0, 0, 0);
+	}
+
+	/* Responsive Visibility */
+	.hide-on-mobile {
+		display: inherit;
+	}
+
+	@media (max-width: 900px) {
+		.hide-on-mobile {
+			display: none !important;
+		}
+	}
+
+	.hide-on-desktop {
+		display: initial;
+	}
+
+	@media (min-width: 901px) {
+		.hide-on-desktop {
+			display: none !important;
+		}
+	}
+
+	/* ============================================
+	   DARK MODE INPUT FIX
+	   ============================================ */
+
+	[data-theme="dark"] input,
+	[data-theme="dark"] textarea {
+		color: var(--color-white);
+		-webkit-text-fill-color: var(--color-white);
 	}
 </style>
